@@ -1,0 +1,16 @@
+{
+  "name": "LifeSuit - Smart Rehabilitation Companion",
+  "short_name": "LifeSuit",
+  "description": "An intelligent rehabilitation companion app to monitor, guide, and motivate patients. It provides real-time health monitoring, repetition tracking, motor control, and progress visualization.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#111827",
+  "theme_color": "#4F46E5",
+  "icons": [
+    {
+      "src": "/vite.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "name": "LifeSuit - Smart Rehabilitation Companion",
+  "description": "An intelligent rehabilitation companion app to monitor, guide, and motivate patients. It provides real-time health monitoring, repetition tracking, motor control, and progress visualization.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}

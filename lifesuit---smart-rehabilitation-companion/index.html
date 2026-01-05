@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>LifeSuit - Smart Rehabilitation Companion</title>
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#4F46E5" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              'brand-bg-dark': '#111827',
+              'brand-bg-light': '#1F2937',
+              'brand-primary': '#4F46E5',
+              'brand-primary-dark': '#4338CA',
+              'brand-secondary': '#14B8A6',
+              'brand-accent': '#F59E0B',
+              'brand-warn': '#EF4444',
+              'brand-text-light': '#F3F4F6',
+              'brand-text-dark': '#9CA3AF',
+            },
+            animation: {
+              'fade-in': 'fadeIn 0.3s ease-out',
+              'slide-in-left': 'slideInLeft 0.3s ease-out',
+              'pulse-glow': 'pulseGlow 2s infinite ease-in-out',
+              'idle-bounce': 'idleBounce 3s infinite ease-in-out',
+              'celebrate-jump': 'celebrateJump 0.5s ease-out',
+              'speech-bubble-appear': 'speechBubbleAppear 0.4s ease-out forwards',
+            },
+            keyframes: {
+              fadeIn: {
+                '0%': { opacity: '0' },
+                '100%': { opacity: '1' },
+              },
+              slideInLeft: {
+                '0%': { transform: 'translateX(-100%)', opacity: '0' },
+                '100%': { transform: 'translateX(0)', opacity: '1' },
+              },
+              pulseGlow: {
+                '0%, 100%': {
+                  boxShadow: '0 0 5px rgba(20, 184, 166, 0.4), 0 0 10px rgba(79, 70, 229, 0.3)',
+                },
+                '50%': {
+                  boxShadow: '0 0 15px rgba(20, 184, 166, 0.8), 0 0 25px rgba(79, 70, 229, 0.6)',
+                },
+              },
+              idleBounce: {
+                '0%, 100%': { transform: 'translateY(0)' },
+                '50%': { transform: 'translateY(-8px)' },
+              },
+              celebrateJump: {
+                '0%, 100%': { transform: 'translateY(0) scale(1)' },
+                '25%': { transform: 'translateY(-20px) scale(1.05)' },
+                '50%': { transform: 'translateY(0) scale(1)' },
+                '75%': { transform: 'translateY(-10px) scale(1.02)' },
+              },
+              speechBubbleAppear: {
+                '0%': { opacity: '0', transform: 'scale(0.8) translateY(10px)' },
+                '100%': { opacity: '1', transform: 'scale(1) translateY(0)' },
+              },
+            },
+          },
+        },
+      }
+    </script>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://esm.sh/react@^19.1.1/",
+    "react": "https://esm.sh/react@^19.1.1",
+    "react-dom/client": "https://esm.sh/react-dom@^19.1.1/client",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.1/",
+    "recharts": "https://esm.sh/recharts@^3.1.2",
+    "@google/genai": "https://esm.sh/@google/genai"
+  }
+}
+</script>
+<link rel="stylesheet" href="/index.css">
+</head>
+  <body class="bg-brand-bg-dark text-brand-text-light">
+    <div id="root"></div>
+    <script type="module" src="/index.tsx"></script>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js').then(registration => {
+            console.log('SW registered: ', registration);
+          }).catch(registrationError => {
+            console.log('SW registration failed: ', registrationError);
+          });
+        });
+      }
+    </script>
+  </body>
+</html>
